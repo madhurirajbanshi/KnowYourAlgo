@@ -1,0 +1,13 @@
+services:
+  webapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./API/database.db:/app/database.db
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_ENVIRONMENT=Development
